@@ -52,18 +52,18 @@
 
     <!-- Right: Desktop Icons -->
   <div class="hidden md:flex items-center space-x-4">
-      <a href="#"><img class="w-5" src="/Icon/search-interface-symbol.png" alt="Search"></a>
-      <a href="#"><img class="w-5" src="/Icon/user.png" alt="User"></a>
+      <a href="#"><img class="w-5" src="/search-interface-symbol.png" alt="Search"></a>
+      <a href="#"><img class="w-5" src="/user.png" alt="User"></a>
       <div class="relative inline-block">
         <a routerLink="/cart">
-          <img class="w-5" src="/Icon/shopping-cart.png" alt="Cart">
+          <img class="w-5" src="/shopping-cart.png" alt="Cart">
             <!-- Badge on top of icon -->
            <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
             {{ cartService.getCartItem().length }}
           </span>
         </a>
       </div>
-      <a href="#"><img class="w-5" src="/Icon/heart.png" alt="Heart"></a>
+      <a href="#"><img class="w-5" src="/heart.png" alt="Heart"></a>
     </div>
   </div>
 
@@ -132,7 +132,7 @@
         <div class="flex items-center space-x-3 text-neutral-950 hover:text-gray-500 py-2">
           <div class="relative">
             <a routerLink="/cart" class="flex items-center space-x-3">
-              <img class="w-5 h-5" src="/Icon/shopping-cart.png" alt="Cart">
+              <img class="w-5 h-5" src="/shopping-cart.png" alt="Cart">
               <span class="text-sm">Cart</span>
               <!-- Badge -->
               <span id="cartCount" class="ml-auto bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
@@ -144,7 +144,7 @@
         
         <!-- Wishlist -->
         <a href="#" class="flex items-center space-x-3 text-neutral-950 hover:text-gray-500 py-2">
-          <img class="w-5 h-5" src="/Icon/heart.png" alt="Heart">
+          <img class="w-5 h-5" src="/heart.png" alt="Heart">
           <span class="text-sm">Wishlist</span>
         </a>
       </div>
