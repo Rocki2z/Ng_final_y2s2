@@ -1,0 +1,154 @@
+  <main class="bg-white/90">
+    <nav class="bg-neutral-950 p-3">
+      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
+        <p class="text-white text-center">EN/LANG</p>
+        <p class="text-white text-center">Promotion Unlimited</p>
+        <div class="flex md:flex space-x-5">
+          <a href="#" class="text-gray-300 hover:text-white text-sm md:text-base">Contact</a>
+          <a href="#" class="text-gray-300 hover:text-white text-sm md:text-base">About</a>
+        </div>
+      </div>
+    </nav>
+  </main>
+  <!-- Main Nav -->
+ <div class="bg-neutral-50 px-4 py-5 relative">
+  <div class="flex items-center justify-between md:justify-around">
+    <!-- Left: Hamburger + Desktop Nav -->
+    <div class="flex items-center space-x-4">
+      <!-- Mobile: Hamburger Button -->
+      <button class="md:hidden" (click)="toggleMenu()">
+        <svg class="w-6 h-6 text-neutral-950" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex space-x-4 text-base sm:text-lg md:text-xl">
+        <div class="relative group">
+          <a routerLink="/" class="text-neutral-950 hover:text-gray-400">Home</a>
+          <!-- <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 p-3 space-y-2 z-10">
+            <a href="#" class="block text-sm hover:text-gray-500">Tops</a>
+            <a href="#" class="block text-sm hover:text-gray-500">Bottoms</a>
+            <a href="#" class="block text-sm hover:text-gray-500">Shoes</a>
+          </div> -->
+        </div>
+        <div class="relative group">
+          <a routerLink="product-page" class="text-neutral-950 hover:text-gray-400">Products</a>
+          <!-- <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 p-3 space-y-2 z-10">
+            <a href="#" class="block text-sm hover:text-gray-500">Boys</a>
+            <a href="#" class="block text-sm hover:text-gray-500">Girls</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Logo -->
+    <div class="text-neutral-950 font-bold text-2xl md:text-3xl text-center absolute left-1/2 transform -translate-x-1/2">
+      <a routerLink="/">ROCKIE</a>
+
+    </div>
+
+    <!-- Right: Desktop Icons -->
+  <div class="hidden md:flex items-center space-x-4">
+      <a href="#"><img class="w-5" src="/Icon/search-interface-symbol.png" alt="Search"></a>
+      <a href="#"><img class="w-5" src="/Icon/user.png" alt="User"></a>
+      <div class="relative inline-block">
+        <a routerLink="/cart">
+          <img class="w-5" src="/Icon/shopping-cart.png" alt="Cart">
+            <!-- Badge on top of icon -->
+           <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+            {{ cartService.getCartItem().length }}
+          </span>
+        </a>
+      </div>
+      <a href="#"><img class="w-5" src="/Icon/heart.png" alt="Heart"></a>
+    </div>
+  </div>
+
+  <!-- ✅ Sidebar Menu for Mobile -->
+  <div
+    class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden"
+    [class.-translate-x-full]="!is_show" [class.translate-x-0]="is_show">
+    <div class="p-5 space-y-5">
+      <button class="text-right w-full" (click)="toggleMenu()">
+        <svg class="w-6 h-6 text-neutral-950" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <a href="#" class="block text-neutral-950 hover:text-gray-500">Home</a>
+      <a href="#" class="block text-neutral-950 hover:text-gray-500">Products</a>
+      <a href="#" class="block text-neutral-950 hover:text-gray-500">Explore</a>
+      <a href="#" class="block text-neutral-950 hover:text-gray-500">New</a>
+      <a href="#"><img class="w-5" src="/Icon/search-interface-symbol.png" alt="Search"></a>
+    </div>
+  </div>
+  </div>
+
+  <div
+  class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden"
+  [class.-translate-x-full]="!is_show" [class.translate-x-0]="is_show">
+  <div class="p-5 space-y-5">
+    <!-- Close Button -->
+    <button class="text-right w-full" (click)="toggleMenu()">
+      <svg class="w-6 h-6 text-neutral-950" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Navigation Links -->
+    <a href="#" class="block text-neutral-950 hover:text-gray-500">Home</a>
+    <a href="#" class="block text-neutral-950 hover:text-gray-500">Products</a>
+    <a href="#" class="block text-neutral-950 hover:text-gray-500">Explore</a>
+    <a href="#" class="block text-neutral-950 hover:text-gray-500">New</a>
+    
+    <!-- Divider -->
+    <hr class="border-gray-200">
+    
+    <!-- Icon Section -->
+    <div class="space-y-4">
+      <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wider">Quick Access</h3>
+      
+      <div class="space-y-3">
+        <!-- Search -->
+        <a href="#" class="flex items-center space-x-3 text-neutral-950 hover:text-gray-500 py-2">
+          <img class="w-5 h-5" src="/Icon/search-interface-symbol.png" alt="Search">
+          <span class="text-sm">Search</span>
+        </a>
+        
+        <!-- User Profile -->
+        <a href="#" class="flex items-center space-x-3 text-neutral-950 hover:text-gray-500 py-2">
+          <img class="w-5 h-5" src="/Icon/user.png" alt="User">
+          <span class="text-sm">My Account</span>
+        </a>
+        
+        <!-- Shopping Cart -->
+        <div class="flex items-center space-x-3 text-neutral-950 hover:text-gray-500 py-2">
+          <div class="relative">
+            <a routerLink="/cart" class="flex items-center space-x-3">
+              <img class="w-5 h-5" src="/Icon/shopping-cart.png" alt="Cart">
+              <span class="text-sm">Cart</span>
+              <!-- Badge -->
+              <span id="cartCount" class="ml-auto bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                {{ cartService.getCartItem().length }}
+              </span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Wishlist -->
+        <a href="#" class="flex items-center space-x-3 text-neutral-950 hover:text-gray-500 py-2">
+          <img class="w-5 h-5" src="/Icon/heart.png" alt="Heart">
+          <span class="text-sm">Wishlist</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+  <hr class="border border-black">

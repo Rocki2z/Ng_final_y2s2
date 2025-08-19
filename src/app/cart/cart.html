@@ -1,0 +1,41 @@
+
+
+ <app-nav></app-nav>
+<div class="flex flex-col items-center justify-center mt-10 mb-10 px-10">
+
+  <div class=" bg-white px-4 sm:px-8 py-6 shadow-2xl w-full max-w-6xl ">
+    
+    <div>
+      @if(cartService.getCartItem().length === 0) {
+        <div class="text-center text-gray-500">
+          <p>Your cart is empty.</p>
+          <br>
+          <button routerLink="/" class="mt-4 bg-black  text-white px-4 rounded hover:bg-gray-800 BacktoCart h-10">Back to Shop</button>
+        </div>
+      }
+      @for(item of cartService.getCartItem(); track item.id) {
+        <div class="flex items-center justify-between gap-4 border-b py-4">
+          <input type="checkbox" [checked]="item.is_select" (change)="cartService.selectCartItem(item)" class="default:outline-5 default:ring-0 default:focus:ring-0 w-5 h-5" />
+          <img [src]="item.image" alt="Product Image" class="w-25 h-30 object-cover rounded-md" />
+          <div class="flex-1">
+          <h3 class="font-semibold text-lg">{{ item.title }}</h3>
+          <p class="text-gray-600">{{ item.price * item.quantity | currency }}</p>
+          <div class="flex items-center mt-2">
+            <button (click)="cartService.decreaseQuantity(item)" class="px-2 py-1 border rounded">-</button>
+            <span class="px-4">{{ item.quantity }}</span>
+            <button (click)="cartService.increaseQuantity(item)" class="px-2 py-1 border rounded">+</button>
+          </div>
+        </div>
+        <button (click)="cartService.removeItem(item)" class="text-red-500 hover:underline">Remove</button>
+      </div>
+    }
+    @if(cartService.getCartItem().length > 0) {
+      <div class="mt-8 flex justify-between items-center border-t pt-4 text-center text-gray-500">
+        <p class="text-xl font-bold">Total: {{ cartService.getCartTotal() | currency }}</p>
+        <button routerLink="/checkout" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Checkout</button>
+      </div>
+    }
+  </div>
+</div>
+
+</div>

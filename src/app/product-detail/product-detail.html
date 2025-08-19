@@ -1,0 +1,51 @@
+
+    
+<app-nav></app-nav>
+    <!-- Product Detail Section -->
+    <div class="container mx-auto px-10 py-8" >
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-gray-600 mb-8">
+            <a routerLink="/" class="hover:text-gray-900">Home</a> /
+            <a href="#" class="hover:text-gray-900">Men</a> /
+            <a href="#" class="hover:text-gray-900">Hoodies</a> /
+            <span class="text-gray-900">Hypebeast Unlimited Hoodie</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-1">
+            <!-- Product Images -->
+            <div class="space-y-6 flex flex-col items-center justify-center">
+                <div class="aspect-square bg-neutral-70 rounded-lg object-contain w-50">
+                    <img src="{{ product.image }}" alt="Hypebeast Unlimited Hoodie" class="w-full h-full object-cover product-image">
+                </div>
+            
+            </div>
+
+            <!-- Product Info -->
+            <div class="space-y-6">
+                <div>
+                    <h1 class="text-4xl font-display font-black mb-2"> {{ product.title }} </h1>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-3xl font-bold">$189.99</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-4">
+                    <button class="w-full bg-black text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-gray-800 transform hover:scale-[1.02] transition-all duration-200"
+                        (click)="addToCart(product)"
+                    >
+                        ADD TO CART
+                    </button>
+                </div>
+
+                <!-- Features -->
+                <div class="border-t pt-6 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm"> {{ product.description }}</span>
+                    </div>
+                   
+                 </div>
+            </div>
+        </div>
+     </div>
+

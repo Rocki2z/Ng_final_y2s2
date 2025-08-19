@@ -1,0 +1,12 @@
+<app-nav></app-nav>
+<div class="w-full max-w-7xl mx-auto mt-10 px-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      @for(item of productService.getProduct(); track item.id) {
+        <app-content 
+          [product]="item"
+          (OnAddToCart)="addToCart($event)"
+          >
+        </app-content>
+      }
+    </div>
+  </div>
